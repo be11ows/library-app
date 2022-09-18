@@ -13,8 +13,12 @@
     <p class="title">The be11ows Library</p>
   </header>
   <main>
+    <div class="add">
+      <button id="add-button">Add a Book</button>
+    </div>
+
     <div class="form">
-      <form action="post" id="form">
+        <form action="post" id="form">
         <label for="title">Title</label>
         <input type="text" name="title" id="title" required>
 
@@ -33,12 +37,12 @@
           <input type="radio" id="curr-read" name="book-stataus" value="Currently Reading">
           <label for="curr-read">Currently Reading</label><br>
         </div>
-        <input type="submit">
+        <input type="submit" id="submit-button" value="Submit">
       </form>
     </div>
 
-    <div class="libary">
-      the books will display here
+    <div class="library">
+      
     </div>
   </main>
 

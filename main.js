@@ -17,10 +17,19 @@ function looper(myLibrary) {
   })
 }
 
-let addButton = document.querySelector('.add-btn');
+let form = document.querySelector('.form');
+let addButton = document.querySelector('#add-button');
+let submitButton = document.querySelector('#submit-button');
+
+submitButton.addEventListener('click', (e) => {
+  console.log(e);
+  e.preventDefault();
+  // const book = new Book(title.value, author.value, pages.value, read)
+  form.style.display = 'none';
+})
 
 addButton.addEventListener('click', (e) => {
-  
+  form.style.display = 'block';
 })
 
 // const book1 = new Book('The Art of Dreaming', 'Carlos Castaneda', 220, 'Currently reading');
