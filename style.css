@@ -96,13 +96,14 @@ main {
   border-radius: 10px;
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, 150px);
+  grid-template-columns: repeat(auto-fill, 200px);
   padding: 10px;
 }
 
 .book-card {
   width: auto;
   height: 150px;
+  /* width: 150px; */
   font-size: 1rem;
   border: 1px solid black;
   border-radius: 10px;
@@ -116,7 +117,7 @@ main {
 }
 
 .book-card > .title {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 footer {

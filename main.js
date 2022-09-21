@@ -14,14 +14,21 @@ function addBookToLibrary(book) {
 let libraryDiv = document.querySelector('#library');
 
 libraryDiv.addEventListener('click', (e) => {
+  console.log(e.target.textContent)
   const isButton = e.target.nodeName === 'BUTTON';
   console.log('inside');
   console.log(isButton);
-  console.log(e.path[1])
+  console.log(e.path[2])
+  console.log(libraryDiv)
   if(!isButton) {
     return;
   }
-  libraryDiv.removeChild(e.path[1]);
+  if(e.target.textContent === "Delete"){
+    libraryDiv.removeChild(e.path[2]);
+  }
+  if(e.target.textContent === "Edit"){
+    // what to do for edit functionality
+  }
 })
 
 function looper(myLibrary) {
@@ -49,7 +56,10 @@ function addBookToDom(book) {
       <div class="author">Author: ${book.author}</div>
       <div class="pages">Pages: ${book.pages}</div>
       <div class="status">Status: ${book.status}</div>
-      <button class="bookDelete">Delete</button>`;
+      <div class="book-buttons">
+        <button class="bookDelete">Delete</button>
+        <button class="bookEdit">Edit</button>
+      </div>`;
   
   console.log(bookCardHTML);
 
@@ -60,12 +70,6 @@ function addBookToDom(book) {
 let form = document.querySelector('.form');
 let addButton = document.querySelector('#add-button');
 let submitButton = document.querySelector('#submit-button');
-// let deleteButtons = document.querySelectorAll('.bookDelete');
-
-// deleteButtons.addEventListener('click', (e) => {
-//   console.log('delete clicked')
-//   libraryDiv.removeChild(e.path[1]);
-// })
 
 addButton.addEventListener('click', () => {
   form.style.display = 'block';
