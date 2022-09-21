@@ -1,46 +1,93 @@
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, status) {
   this.title = title
   this.author = author
   this.pages = pages
-  this.read = read
+  this.status = status
 }
 
 function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
+let libraryDiv = document.querySelector('#library');
+
+libraryDiv.addEventListener('click', (e) => {
+  const isButton = e.target.nodeName === 'BUTTON';
+  console.log('inside');
+  console.log(isButton);
+  console.log(e.path[1])
+  if(!isButton) {
+    return;
+  }
+  libraryDiv.removeChild(e.path[1]);
+})
+
 function looper(myLibrary) {
   myLibrary.forEach(book => {
+    let bookCard = document.createElement('div').classList.add('book-card');
+    let bookCardHTML = `      
+        <div class="title">${book.title}</div>
+        <div class="author">Author: ${book.author}</div>
+        <div class="pages">Pages: ${book.pages}</div>
+        <div class="status">Status:${book.status}</div>`;
 
-  })
+    bookCard.innerHTML = bookCardHTML;
+    libraryDiv.appendChild(bookCard);
+  });
+}
+
+function addBookToDom(book) {
+  console.log('book for dom is ', book)
+
+  let bookCard = document.createElement('div');
+  bookCard.classList.add('book-card');
+  console.log('bookCard is ', bookCard);
+  let bookCardHTML = `      
+      <div class="title">${book.title}</div>
+      <div class="author">Author: ${book.author}</div>
+      <div class="pages">Pages: ${book.pages}</div>
+      <div class="status">Status: ${book.status}</div>
+      <button class="bookDelete">Delete</button>`;
+  
+  console.log(bookCardHTML);
+
+  bookCard.innerHTML = bookCardHTML;
+  libraryDiv.appendChild(bookCard);
 }
 
 let form = document.querySelector('.form');
 let addButton = document.querySelector('#add-button');
 let submitButton = document.querySelector('#submit-button');
+// let deleteButtons = document.querySelectorAll('.bookDelete');
+
+// deleteButtons.addEventListener('click', (e) => {
+//   console.log('delete clicked')
+//   libraryDiv.removeChild(e.path[1]);
+// })
+
+addButton.addEventListener('click', () => {
+  form.style.display = 'block';
+});
 
 submitButton.addEventListener('click', (e) => {
-  console.log(e);
   e.preventDefault();
-  // const book = new Book(title.value, author.value, pages.value, read)
+  
+  var elements = document.getElementById("form").elements;
+
+  const newBook = new Book(elements[0].value, elements[1].value, elements[2].value, elements[3].value)
+  console.log('new book is ', newBook)
+
+  addBookToLibrary(newBook);
+  addBookToDom(newBook);
+  
+  elements[0].value = '';
+  elements[1].value = '';
+  elements[2].value = '';
+  elements[3].value = '';
   form.style.display = 'none';
-})
+});
 
-addButton.addEventListener('click', (e) => {
-  form.style.display = 'block';
-})
-
-// const book1 = new Book('The Art of Dreaming', 'Carlos Castaneda', 220, 'Currently reading');
-// const book2 = new Book('Dispelling Wetiko', 'Paul Levy', 283, 'Currently reading');
-// const book3 = new Book('Creativity', 'John Cleese', 103, 'No');
-// const book4 = new Book('Wilhelm Reich in Hell', 'Robert Anton Wilson', 161, 'Yes');
-// const book5 = new Book('Privacy is Power', 'Carissa Veliz', 231, 'Yes');
-// const book6 = new Book('Weapons of Math Destruction', "Cathy O'Neil", 239, 'Yes');
-// addBookToLibrary(book1);
-// addBookToLibrary(book2);
-// addBookToLibrary(book3);
-// addBookToLibrary(book4);
-// addBookToLibrary(book5);
-// addBookToLibrary(book6);
+// looper(myLibrary);
+// console.log(myLibrary);

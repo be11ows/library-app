@@ -19,30 +19,46 @@
 
     <div class="form">
         <form action="post" id="form">
-        <label for="title">Title</label>
+        <label for="title" required>Title</label>
         <input type="text" name="title" id="title" required>
 
-        <label for="author">Author</label>
+        <label for="author" required>Author</label>
         <input type="text" name="author" id="author" required>
 
-        <label for="pages">Pages</label>
+        <label for="pages" required>Pages</label>
         <input type="text" name="pages" id="pages" required>
 
+        <label for="status" required>Status</label>
+        <input type="text" name="status" id="status" placeholder="'read' or 'not read'" required>
+
         <br>
-        <div class="radios">
-          <input type="radio" id="read" name="book-stataus" value="Read">
+        <!-- <div class="radios">
+          <input type="radio" id="read" name="book-status" value="Read">
           <label for="read">Read</label><br>
-          <input type="radio" id="not-read" name="book-stataus" value="Not read">
+          <input type="radio" id="not-read" name="book-status" value="Not read">
           <label for="not-read">Not Read</label><br>
-          <input type="radio" id="curr-read" name="book-stataus" value="Currently Reading">
-          <label for="curr-read">Currently Reading</label><br>
-        </div>
+          <input type="radio" id="curr-read" name="book-status" value="Currently Reading">
+          <label for="curr-read">Currently Reading</label><br> -->
+        <!-- </div> -->
         <input type="submit" id="submit-button" value="Submit">
       </form>
     </div>
 
-    <div class="library">
-      
+    <div id='library' class="library">
+      <div class="book-card">
+        <div class="title">Dispelling Wetiko</div>
+        <div class="author">Pual Levy</div>
+        <div class="pages">330</div>
+        <div class="status">Currently Reading</div>
+        <button class="bookDelete">Delete</button>
+      </div>
+      <div class="book-card">
+        <div class="title">Privacy is Power</div>
+        <div class="author">Carissa Veliz</div>
+        <div class="pages">380</div>
+        <div class="status">Read</div>
+        <button class="bookDelete">Delete</button>
+      </div>
     </div>
   </main>
 
