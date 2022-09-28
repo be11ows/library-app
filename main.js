@@ -12,14 +12,14 @@ function addBookToLibrary(book) {
 }
 
 let libraryDiv = document.querySelector('#library');
+let formDiv = document.querySelector('.form');
+let form = document.querySelector('#form');
 
 libraryDiv.addEventListener('click', (e) => {
   console.log(e.target.textContent)
   const isButton = e.target.nodeName === 'BUTTON';
-  console.log('inside');
-  console.log(isButton);
-  console.log(e.path[2])
-  console.log(libraryDiv)
+  let bookCard = e.target.parentElement.parentElement;
+
   if(!isButton) {
     return;
   }
@@ -28,6 +28,10 @@ libraryDiv.addEventListener('click', (e) => {
   }
   if(e.target.textContent === "Edit"){
     // what to do for edit functionality
+    console.log('form is ', form)
+    // console.log(form.elements[0].textContent === )
+    form.style.display = 'block';
+
   }
 })
 
@@ -67,12 +71,11 @@ function addBookToDom(book) {
   libraryDiv.appendChild(bookCard);
 }
 
-let form = document.querySelector('.form');
 let addButton = document.querySelector('#add-button');
 let submitButton = document.querySelector('#submit-button');
 
 addButton.addEventListener('click', () => {
-  form.style.display = 'block';
+  formDiv.style.display = 'block';
 });
 
 submitButton.addEventListener('click', (e) => {
@@ -90,7 +93,7 @@ submitButton.addEventListener('click', (e) => {
   elements[1].value = '';
   elements[2].value = '';
   elements[3].value = '';
-  form.style.display = 'none';
+  formDiv.style.display = 'none';
 });
 
 // looper(myLibrary);

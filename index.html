@@ -19,17 +19,20 @@
 
     <div class="form">
         <form action="post" id="form">
-        <label for="title" required>Title</label>
-        <input type="text" name="title" id="title" required>
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" required />
+        
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author" required />
 
-        <label for="author" required>Author</label>
-        <input type="text" name="author" id="author" required>
+        <label for="pages">Pages</label>
+        <input type="text" name="pages" id="pages" required />
 
-        <label for="pages" required>Pages</label>
-        <input type="text" name="pages" id="pages" required>
-
-        <label for="status" required>Status</label>
-        <input type="text" name="status" id="status" placeholder="'read' or 'not read'" required>
+        <label  for="status">Status</label>
+        <input type="text" name="status" id="status" placeholder="'read' or 'not read'" required />
+          <!-- <input class="switch"type="checkbox" checked>
+          <span class="slider round"></span>
+        </label> -->
 
         <br>
         <!-- <div class="radios">
@@ -49,10 +52,13 @@
         <div class="title">Dispelling Wetiko</div>
         <div class="author">Author: Pual Levy</div>
         <div class="pages">Pages: 330</div>
-        <div class="status">Status: Currently Reading</div>
+        <div class="status">Status: Not Read</div>
         <div class="book-buttons">
           <button class="bookDelete">Delete</button>
-          <button class="bookEdit">Edit</button>
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
         </div>
       </div>
       <div class="book-card">
